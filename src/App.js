@@ -67,7 +67,7 @@ function App() {
     remove(ref(db, `/${todo.uuid}`));
   };
 
-  // 編集ボタンがクリックされた時の関数
+  // updateボタンがクリックされた時の関数
   const handleUpdateTodo = (todo) => {
     setIsEdit(true);
     setTempUuid(todo.uuid);
@@ -95,9 +95,9 @@ function App() {
 
   // 各todo部分をクリックした際に、isCompletedのtrue/falseを切り替える
   const handleStatusChange = (todo) => {
-    const isComplete = !todo.isCompleted;
+    const newIsComplete = !todo.isCompleted;
     update(ref(db, `/${todo.uuid}`), {
-      isCompleted: isComplete,
+      isCompleted: newIsComplete,
     });
   };
 
